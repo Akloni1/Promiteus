@@ -1,0 +1,18 @@
+version: '3.4'
+
+networks:
+  services-network:
+    driver: bridge 
+
+services:
+  prometheuslab:
+    container_name: prometheuslab
+    image: prometheuslab:latest
+    build:
+      context: prometheuslab
+      dockerfile: Dockerfile
+    ports:
+      - "5050:80"
+    networks:
+      - services-network
+  
